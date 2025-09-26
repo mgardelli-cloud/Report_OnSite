@@ -8,17 +8,19 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&display=swap');
     :root {
-      --primary-color: #2563eb;
-      --secondary-color: #64748b;
-      --accent-color: #0f172a;
+      --primary-color: #1e3a8a;
+      --secondary-color: #3b82f6;
+      --accent-color: #1e40af;
       --background-color: #f8fafc;
       --surface-color: #ffffff;
-      --border-color: #e2e8f0;
-      --text-primary: #0f172a;
-      --text-secondary: #64748b;
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --border-color: #bfdbfe;
+      --text-primary: #1e3a8a;
+      --text-secondary: #1e40af;
+      --blue-bg: rgba(59, 130, 246, 0.08);
+      --blue-border: rgba(59, 130, 246, 0.2);
+      --shadow-sm: 0 1px 2px 0 rgb(30 58 138 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(30 58 138 / 0.1), 0 2px 4px -2px rgb(30 58 138 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(30 58 138 / 0.1), 0 4px 6px -4px rgb(30 58 138 / 0.1);
     }
     html, body {
       margin: 0;
@@ -29,19 +31,21 @@
       font-weight: 200;
       color: var(--text-primary);
       overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.5;
     }
     .container {
       width: 210mm; /* A4 width */
       min-height: 297mm; /* A4 height */
-      margin: 2rem auto;
+      max-width: 210mm;
+      margin: 1rem auto;
       background-color: var(--surface-color);
       border: 1px solid var(--border-color);
-      padding: 2rem;
+      padding: 1.5rem;
       box-shadow: var(--shadow-lg);
-      border-radius: 1rem;
-      font-size: 0.9rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
       position: relative;
+      box-sizing: border-box;
     }
     .text-input {
       border: 1px solid var(--border-color);
@@ -190,8 +194,23 @@
     }
     .compact-fields label {
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-primary);
+    }
+    
+    /* Stile uniforme per tutti i riquadri */
+    .section-box {
+      background-color: var(--blue-bg);
+      border: 1px solid var(--blue-border);
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+    
+    .section-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      display: block;
     }
     /* Stili per la stampa */
     @media print {
@@ -228,31 +247,30 @@
 <body class="p-4">
     <div class="container rounded-md">
         <!-- Header Section -->
-        <div class="flex items-center justify-between pb-6 border-b border-gray-200 relative">
+        <div class="flex items-center justify-between pb-4 border-b-2 border-blue-300 relative">
             <div class="flex items-center space-x-4">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF3WLeV5KU2XNmtWkbvTraGaKT5OA7DuseSw&s" alt="Pluriservice Solutions Logo" class="w-52 h-20 object-contain">
-                <div class="text-xl font-light text-gray-700">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF3WLeV5KU2XNmtWkbvTraGaKT5OA7DuseSw&s" alt="Pluriservice Solutions Logo" class="w-48 h-16 object-contain">
+                <div class="text-lg font-medium" style="color: var(--text-primary);">
                     Pluriservice Solutions S.r.l.
                 </div>
             </div>
             <div class="text-right">
-                <h1 class="text-2xl font-extralight text-gray-900 tracking-wide">SERVIZIO DI ASSISTENZA CLIENTI</h1>
+                <h1 class="text-xl font-bold tracking-wide" style="color: var(--text-primary);">SERVIZIO DI ASSISTENZA CLIENTI</h1>
             </div>
-            <div class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 via-blue-400 to-transparent"></div>
         </div>
         
         <!-- Info Section -->
-        <div class="grid grid-cols-2 gap-x-8 mt-6 text-sm">
+        <div class="grid grid-cols-2 gap-x-8 mt-4 text-sm">
             <div class="flex items-center">
-                <p class="text-xs text-gray-500 font-light">via F.Santi, 22 | Z.I. Bassette 48123 Ravenna (RA) | ITALY<br>www.pluriservice.it | +39 0544 456669</p>
+                <p class="text-xs font-light" style="color: var(--text-secondary);">via F.Santi, 22 | Z.I. Bassette 48123 Ravenna (RA) | ITALY<br>www.pluriservice.it | +39 0544 456669</p>
             </div>
-            <div class="flex items-center justify-end space-x-6">
-                <div class="flex items-center space-x-3">
-                    <label class="text-sm font-medium text-gray-700">Data intervento:</label>
+            <div class="flex items-center justify-end space-x-4">
+                <div class="flex items-center space-x-2">
+                    <label class="text-sm font-semibold" style="color: var(--text-primary);">Data intervento:</label>
                     <input type="date" class="date-input-box">
                 </div>
-                <div class="flex items-center space-x-3">
-                    <label class="text-sm font-medium text-gray-700">Scheda N°:</label>
+                <div class="flex items-center space-x-2">
+                    <label class="text-sm font-semibold" style="color: var(--text-primary);">Scheda N°:</label>
                     <input type="number" maxlength="4" class="serial-box" min="0" max="9999" pattern="\d{4}">
                 </div>
             </div>
@@ -261,36 +279,38 @@
         <div class="section-line"></div>
         
         <!-- Dati Tecnici Section -->
-        <div class="grid grid-cols-2 gap-x-8 mt-6 compact-fields">
-          <div class="flex flex-col space-y-4">
-              <div class="form-row">
-                  <label class="font-medium text-gray-700 whitespace-nowrap">CLIENTE:</label>
-                  <input type="text" class="text-input w-full">
-              </div>
-              <div class="form-row">
-                  <label class="font-medium text-gray-700 whitespace-nowrap">TIPI:</label>
-                  <input type="text" class="text-input w-full">
-              </div>
-              <div class="form-row">
-                  <label class="font-medium text-gray-700 whitespace-nowrap">MARCHE:</label>
-                  <input type="text" class="text-input w-full">
-              </div>
-              <div class="form-row">
-                  <label class="font-medium text-gray-700 whitespace-nowrap">MODELLI:</label>
-                  <input type="text" class="text-input w-full">
+        <div class="grid grid-cols-2 gap-x-6 mt-4 compact-fields">
+          <div class="section-box">
+              <div class="flex flex-col space-y-3">
+                  <div class="form-row">
+                      <label class="section-title text-sm whitespace-nowrap">CLIENTE:</label>
+                      <input type="text" class="text-input w-full">
+                  </div>
+                  <div class="form-row">
+                      <label class="section-title text-sm whitespace-nowrap">TIPI:</label>
+                      <input type="text" class="text-input w-full">
+                  </div>
+                  <div class="form-row">
+                      <label class="section-title text-sm whitespace-nowrap">MARCHE:</label>
+                      <input type="text" class="text-input w-full">
+                  </div>
+                  <div class="form-row">
+                      <label class="section-title text-sm whitespace-nowrap">MODELLI:</label>
+                      <input type="text" class="text-input w-full">
+                  </div>
               </div>
           </div>
-          <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <label class="font-medium text-gray-700 block mb-3">INTERVENTO EFFETTUATO:</label>
-              <div class="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-3 text-gray-700">IN LABORATORIO</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-3 text-gray-700">C/O CLIENTE</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-3 text-gray-700">RIP. IN GARANZIA</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-3 text-gray-700">RIP. A CONTRATTO</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-3 text-gray-700">RIP. CON ADDEBITO</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-3 text-gray-700">IN CONTO ORDINE</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-3 text-gray-700">RIP. SENZA ADDEBITO</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-3 text-gray-700">RESO SENZA ADDEBITO</span></div>
+          <div class="section-box">
+              <label class="section-title">INTERVENTO EFFETTUATO:</label>
+              <div class="grid grid-cols-2 gap-x-3 gap-y-2 text-sm">
+                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-2" style="color: var(--text-primary);">IN LABORATORIO</span></div>
+                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-2" style="color: var(--text-primary);">C/O CLIENTE</span></div>
+                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-2" style="color: var(--text-primary);">RIP. IN GARANZIA</span></div>
+                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-2" style="color: var(--text-primary);">RIP. A CONTRATTO</span></div>
+                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-2" style="color: var(--text-primary);">RIP. CON ADDEBITO</span></div>
+                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-2" style="color: var(--text-primary);">IN CONTO ORDINE</span></div>
+                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-2" style="color: var(--text-primary);">RIP. SENZA ADDEBITO</span></div>
+                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-2" style="color: var(--text-primary);">RESO SENZA ADDEBITO</span></div>
               </div>
           </div>
         </div>
@@ -298,48 +318,48 @@
         <div class="section-line"></div>
 
         <!-- Difetto Section -->
-        <div class="grid grid-cols-2 gap-x-8 mt-6">
-            <div class="bg-red-50 border border-red-200 rounded-lg p-4">
-                <label class="font-medium text-gray-700 block mb-2">DIFETTO LAMENTATO</label>
-                <textarea rows="3" class="text-input w-full border-red-200 focus:border-red-400 focus:shadow-red-100" placeholder="Descrivi il problema segnalato dal cliente..."></textarea>
+        <div class="grid grid-cols-2 gap-x-6 mt-4">
+            <div class="section-box">
+                <label class="section-title">DIFETTO LAMENTATO</label>
+                <textarea rows="3" class="text-input w-full" placeholder="Descrivi il problema segnalato dal cliente..."></textarea>
             </div>
-            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                <label class="font-medium text-gray-700 block mb-2">DIFETTO RISCONTRATO</label>
-                <textarea rows="3" class="text-input w-full border-yellow-200 focus:border-yellow-400 focus:shadow-yellow-100" placeholder="Descrivi il problema effettivamente rilevato..."></textarea>
+            <div class="section-box">
+                <label class="section-title">DIFETTO RISCONTRATO</label>
+                <textarea rows="3" class="text-input w-full" placeholder="Descrivi il problema effettivamente rilevato..."></textarea>
             </div>
         </div>
 
         <!-- Descrizione Intervento Section -->
-        <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <label class="font-medium text-gray-700 block mb-3">DESCRIZIONE INTERVENTO</label>
-            <textarea rows="6" class="text-input w-full border-blue-200 focus:border-blue-400 focus:shadow-blue-100" placeholder="Descrivi dettagliatamente l'intervento eseguito, le operazioni svolte e i risultati ottenuti..."></textarea>
+        <div class="section-box mt-4">
+            <label class="section-title">DESCRIZIONE INTERVENTO</label>
+            <textarea rows="5" class="text-input w-full" placeholder="Descrivi dettagliatamente l'intervento eseguito, le operazioni svolte e i risultati ottenuti..."></textarea>
         </div>
 
         <div class="section-line"></div>
 
         <!-- Costi Section -->
-        <div class="grid grid-cols-2 gap-x-8 mt-6">
-            <div class="bg-green-50 border border-green-200 rounded-lg p-4 space-y-4">
-                <div class="grid grid-cols-[auto_1fr] gap-x-4 items-center">
-                    <label class="font-medium text-gray-700 whitespace-nowrap">TEMPO TOTALE ORE:</label>
-                    <select class="quantity-select-ore quantity-select-narrow border-green-200 focus:border-green-400">
+        <div class="grid grid-cols-2 gap-x-6 mt-4">
+            <div class="section-box space-y-3">
+                <div class="grid grid-cols-[auto_1fr] gap-x-3 items-center">
+                    <label class="section-title text-sm whitespace-nowrap">TEMPO TOTALE ORE:</label>
+                    <select class="quantity-select-ore quantity-select-narrow">
                         <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
                         <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
                     </select>
                 </div>
-                <div class="grid grid-cols-[auto_1fr] gap-x-4 items-center">
-                    <label class="font-medium text-gray-700 whitespace-nowrap">KILOMETRI PERCORSI:</label>
-                    <input type="number" class="text-input km-percorsi w-24 text-right border-green-200 focus:border-green-400">
+                <div class="grid grid-cols-[auto_1fr] gap-x-3 items-center">
+                    <label class="section-title text-sm whitespace-nowrap">KILOMETRI PERCORSI:</label>
+                    <input type="number" class="text-input km-percorsi w-20 text-right">
                 </div>
             </div>
-            <div class="bg-purple-50 border border-purple-200 rounded-lg p-4 space-y-4">
-                <div class="grid grid-cols-[auto_1fr] gap-x-4 items-center">
-                    <label class="font-medium text-gray-700 whitespace-nowrap">Costo Orario (€/h):</label>
-                    <input type="number" step="0.01" min="0" class="text-input costo-orario w-24 text-right border-purple-200 focus:border-purple-400">
+            <div class="section-box space-y-3">
+                <div class="grid grid-cols-[auto_1fr] gap-x-3 items-center">
+                    <label class="section-title text-sm whitespace-nowrap">Costo Orario (€/h):</label>
+                    <input type="number" step="0.01" min="0" class="text-input costo-orario w-20 text-right">
                 </div>
-                <div class="grid grid-cols-[auto_1fr] gap-x-4 items-center">
-                    <label class="font-medium text-gray-700 whitespace-nowrap">Costo Kilometro (€/km):</label>
-                    <input type="number" step="0.01" min="0" class="text-input costo-km w-24 text-right border-purple-200 focus:border-purple-400">
+                <div class="grid grid-cols-[auto_1fr] gap-x-3 items-center">
+                    <label class="section-title text-sm whitespace-nowrap">Costo Kilometro (€/km):</label>
+                    <input type="number" step="0.01" min="0" class="text-input costo-km w-20 text-right">
                 </div>
             </div>
         </div>
@@ -347,12 +367,12 @@
         <div class="section-line"></div>
         
         <!-- Parti Sostituite Section -->
-        <div class="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
-            <label class="font-medium text-gray-700 block mb-4">PARTI SOSTITUITE</label>
-            <div class="grid grid-cols-5 compact-parts gap-4">
-                <div class="col-span-3 font-medium text-gray-600 text-sm">DESCRIZIONE</div>
-                <div class="text-center font-medium text-gray-600 text-sm">QUANTITÀ</div>
-                <div class="text-center font-medium text-gray-600 text-sm">PREZZO UNITARIO (€)</div>
+        <div class="section-box mt-4">
+            <label class="section-title">PARTI SOSTITUITE</label>
+            <div class="grid grid-cols-5 compact-parts gap-3">
+                <div class="col-span-3 font-semibold text-sm" style="color: var(--text-primary);">DESCRIZIONE</div>
+                <div class="text-center font-semibold text-sm" style="color: var(--text-primary);">QUANTITÀ</div>
+                <div class="text-center font-semibold text-sm" style="color: var(--text-primary);">PREZZO UNITARIO (€)</div>
                 <!-- 5 righe compress -->
                 <input type="text" class="text-input col-span-3 part-description"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price">
                 <input type="text" class="text-input col-span-3 part-description"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price">
@@ -365,19 +385,19 @@
         <div class="section-line"></div>
 
         <!-- Final Totals Section -->
-        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6 mt-6">
+        <div class="section-box mt-4" style="background-color: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.3);">
             <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <label class="font-medium text-gray-700 whitespace-nowrap">Totale imponibile €</label>
-                    <input type="text" class="text-input w-28 text-right font-medium border-blue-200" id="total-imponibile" readonly>
+                <div class="flex items-center space-x-2">
+                    <label class="section-title text-sm whitespace-nowrap">Totale imponibile €</label>
+                    <input type="text" class="text-input w-24 text-right font-medium" id="total-imponibile" readonly>
                 </div>
-                <div class="flex items-center space-x-3">
-                    <label class="font-medium text-gray-700 whitespace-nowrap">IVA €</label>
-                    <input type="text" class="text-input w-28 text-right font-medium border-blue-200" id="iva" readonly>
+                <div class="flex items-center space-x-2">
+                    <label class="section-title text-sm whitespace-nowrap">IVA €</label>
+                    <input type="text" class="text-input w-24 text-right font-medium" id="iva" readonly>
                 </div>
-                <div class="flex items-center space-x-3 bg-white rounded-lg p-3 border-2 border-blue-300">
-                    <label class="font-semibold text-blue-900 whitespace-nowrap">Tot. Documento €</label>
-                    <input type="text" class="text-input w-32 text-right font-bold text-blue-900 border-blue-300" id="total-documento" readonly>
+                <div class="flex items-center space-x-2 bg-white rounded-lg p-2 border border-blue-400">
+                    <label class="font-bold text-sm" style="color: var(--text-primary);">Tot. Documento €</label>
+                    <input type="text" class="text-input w-28 text-right font-bold" style="color: var(--text-primary);" id="total-documento" readonly>
                 </div>
             </div>
         </div>
@@ -385,25 +405,25 @@
         <div class="section-line"></div>
 
         <!-- Notes and Signatures Section -->
-        <div class="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-4">
-            <p class="text-xs text-gray-600 leading-relaxed font-light">
-                <strong class="text-amber-800">Note importanti:</strong> Non si accettano reclami per eventuali danni subiti dalle apparecchiature dopo la consegna dal Laboratorio.
+        <div class="section-box mt-4">
+            <p class="text-xs leading-relaxed font-light" style="color: var(--text-secondary);">
+                <strong style="color: var(--text-primary);">Note importanti:</strong> Non si accettano reclami per eventuali danni subiti dalle apparecchiature dopo la consegna dal Laboratorio.
                 È di esclusiva competenza del Laboratorio PLURISERVICE SOLUTIONS S.R.L. stabilire il tipo di difetto ed il tipo di intervento. Inoltre non si accettano resi e proposte se non autorizzati.
             </p>
         </div>
 
-        <div class="grid grid-cols-3 gap-x-8 mt-6">
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <label class="font-medium text-gray-700 block mb-3">RESP. INTERVENTO</label>
+        <div class="grid grid-cols-3 gap-x-6 mt-4">
+            <div class="section-box">
+                <label class="section-title">RESP. INTERVENTO</label>
                 <input type="text" class="text-input w-full" placeholder="Nome del responsabile">
             </div>
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <label class="font-medium text-gray-700 block mb-3">DATA</label>
+            <div class="section-box">
+                <label class="section-title">DATA</label>
                 <input type="date" class="date-input-box w-full">
             </div>
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <label class="font-medium text-gray-700 block mb-3">FIRMA PER CONVALIDA</label>
-                <div class="border-2 border-dashed border-gray-300 rounded-lg h-16 flex items-center justify-center text-gray-400 text-sm">
+            <div class="section-box">
+                <label class="section-title">FIRMA PER CONVALIDA</label>
+                <div class="border-2 border-dashed rounded-lg h-12 flex items-center justify-center text-sm" style="border-color: var(--blue-border); color: var(--text-secondary);">
                     Firma del cliente
                 </div>
             </div>
