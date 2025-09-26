@@ -121,6 +121,18 @@
       height: 1.1rem;
     }
     .quantity-select-narrow {
+      width: 4rem;
+      text-align: center;
+      padding: 0.3rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.3rem;
+      background-color: var(--surface-color);
+      font-family: inherit;
+      font-weight: 300;
+      transition: all 0.2s ease;
+      font-size: 0.75rem;
+    }
+    .quantity-select-parti {
       width: 2rem;
       text-align: center;
       padding: 0.3rem;
@@ -131,6 +143,11 @@
       font-weight: 300;
       transition: all 0.2s ease;
       font-size: 0.75rem;
+    }
+    .quantity-select-parti:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgb(37 99 235 / 0.1);
+      outline: none;
     }
     .quantity-select-narrow:focus {
       border-color: var(--primary-color);
@@ -251,7 +268,7 @@
         margin-bottom: 0.2rem;
         font-size: 0.7rem;
       }
-      .text-input, .quantity-select-narrow, .serial-box {
+      .text-input, .quantity-select-narrow, .quantity-select-parti, .serial-box {
         padding: 0.2rem 0.3rem;
         font-size: 0.65rem;
       }
