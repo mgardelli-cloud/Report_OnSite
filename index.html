@@ -491,9 +491,12 @@
         </div>
     </div>
     <script>
+        // Performance Optimization: Cache DOM references and use event delegation
+        // 1. Avoid attaching duplicate listeners (input + change) across multiple individual elements.
+        // 2. Delegate input events to container to capture all form field changes in a single listener.
+        // 3. Store row references as structured objects to eliminate array indexing inside calculation loop.
         document.addEventListener('DOMContentLoaded', () => {
-            const unitPriceInputs = document.querySelectorAll('.unit-price');
-            const quantitySelectsParti = document.querySelectorAll('.quantity-select-parti');
+            const container = document.querySelector('.container');
             const totalImponibileInput = document.getElementById('total-imponibile');
             const ivaInput = document.getElementById('iva');
             const totalDocumentoInput = document.getElementById('total-documento');
@@ -503,28 +506,43 @@
             const kmPercorsiInput = document.querySelector('.km-percorsi');
             const costoKmInput = document.querySelector('.costo-km');
 
+            const unitPriceInputs = document.querySelectorAll('.unit-price');
+            const quantitySelectsParti = document.querySelectorAll('.quantity-select-parti');
+
+            // Pre-pair quantity selects and unit price inputs for cache-friendly iteration
+            const partsList = [];
+            for (let i = 0; i < unitPriceInputs.length; i++) {
+                partsList.push({
+                    qty: quantitySelectsParti[i],
+                    price: unitPriceInputs[i]
+                });
+            }
+
             function calculateTotals() {
                 let total = 0;
-                for (let i = 0; i < unitPriceInputs.length; i++) {
-                    const quantity = parseInt(quantitySelectsParti[i].value) || 0;
-                    const price = parseFloat(unitPriceInputs[i].value) || 0;
+                for (let i = 0; i < partsList.length; i++) {
+                    const quantity = parseInt(partsList[i].qty.value, 10) || 0;
+                    const price = parseFloat(partsList[i].price.value) || 0;
                     total += quantity * price;
                 }
-                const ore = parseInt(tempoTotaleOreSelect.value) || 0;
+                const ore = parseInt(tempoTotaleOreSelect.value, 10) || 0;
                 const costoOrario = parseFloat(costoOrarioInput.value) || 0;
                 const km = parseFloat(kmPercorsiInput.value) || 0;
                 const costoKm = parseFloat(costoKmInput.value) || 0;
+
                 total += (ore * costoOrario) + (km * costoKm);
                 totalImponibileInput.value = total.toFixed(2);
                 const iva = total * 0.22;
                 ivaInput.value = iva.toFixed(2);
-                const totalDocumento = total + iva;
-                totalDocumentoInput.value = totalDocumento.toFixed(2);
+                totalDocumentoInput.value = (total + iva).toFixed(2);
             }
-            const allInputs = document.querySelectorAll('.unit-price, .quantity-select-parti, .quantity-select-ore, .costo-orario, .km-percorsi, .costo-km');
-            allInputs.forEach(input => {
-                input.addEventListener('input', calculateTotals);
-                input.addEventListener('change', calculateTotals);
+
+            // Single delegated input listener replaces ~24 individual event listeners.
+            // Filter target to only calculate totals when relevant cost/quantity inputs change.
+            container.addEventListener('input', (e) => {
+                if (e.target.matches('.unit-price, .quantity-select-parti, .quantity-select-ore, .costo-orario, .km-percorsi, .costo-km')) {
+                    calculateTotals();
+                }
             });
             calculateTotals();
         });
