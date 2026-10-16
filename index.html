@@ -328,12 +328,12 @@
             </div>
             <div class="flex items-center justify-end space-x-3">
                 <div class="flex items-center space-x-1">
-                    <label class="text-xs font-semibold" style="color: var(--text-primary);">Data:</label>
-                    <input type="date" class="date-input-box">
+                    <label for="doc-data" class="text-xs font-semibold" style="color: var(--text-primary);">Data:</label>
+                    <input id="doc-data" type="date" class="date-input-box">
                 </div>
                 <div class="flex items-center space-x-1">
-                    <label class="text-xs font-semibold" style="color: var(--text-primary);">N°:</label>
-                    <input type="number" maxlength="4" class="serial-box" min="0" max="9999" pattern="\d{4}">
+                    <label for="doc-numero" class="text-xs font-semibold" style="color: var(--text-primary);">N°:</label>
+                    <input id="doc-numero" type="number" maxlength="4" class="serial-box" min="0" max="9999" pattern="\d{4}">
                 </div>
             </div>
         </div>
@@ -345,34 +345,34 @@
           <div class="section-box">
               <div class="flex flex-col space-y-2">
                   <div class="form-row">
-                      <label class="section-title text-xs whitespace-nowrap">CLIENTE:</label>
-                      <input type="text" class="text-input w-full">
+                      <label for="cliente-input" class="section-title text-xs whitespace-nowrap">CLIENTE:</label>
+                      <input id="cliente-input" type="text" class="text-input w-full">
                   </div>
                   <div class="form-row">
-                      <label class="section-title text-xs whitespace-nowrap">TIPI:</label>
-                      <input type="text" class="text-input w-full">
+                      <label for="tipi-input" class="section-title text-xs whitespace-nowrap">TIPI:</label>
+                      <input id="tipi-input" type="text" class="text-input w-full">
                   </div>
                   <div class="form-row">
-                      <label class="section-title text-xs whitespace-nowrap">MARCHE:</label>
-                      <input type="text" class="text-input w-full">
+                      <label for="marche-input" class="section-title text-xs whitespace-nowrap">MARCHE:</label>
+                      <input id="marche-input" type="text" class="text-input w-full">
                   </div>
                   <div class="form-row">
-                      <label class="section-title text-xs whitespace-nowrap">MODELLI:</label>
-                      <input type="text" class="text-input w-full">
+                      <label for="modelli-input" class="section-title text-xs whitespace-nowrap">MODELLI:</label>
+                      <input id="modelli-input" type="text" class="text-input w-full">
                   </div>
               </div>
           </div>
           <div class="section-box">
-              <label class="section-title">INTERVENTO EFFETTUATO:</label>
+              <span class="section-title">INTERVENTO EFFETTUATO:</span>
               <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-xs">
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">IN LABORATORIO</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">C/O CLIENTE</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">RIP. IN GARANZIA</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">RIP. A CONTRATTO</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">RIP. CON ADDEBITO</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">IN CONTO ORDINE</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">RIP. SENZA ADDEBITO</span></div>
-                  <div class="checkbox-container"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">RESO SENZA ADDEBITO</span></div>
+                  <label class="checkbox-container cursor-pointer"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">IN LABORATORIO</span></label>
+                  <label class="checkbox-container cursor-pointer"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">C/O CLIENTE</span></label>
+                  <label class="checkbox-container cursor-pointer"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">RIP. IN GARANZIA</span></label>
+                  <label class="checkbox-container cursor-pointer"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">RIP. A CONTRATTO</span></label>
+                  <label class="checkbox-container cursor-pointer"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">RIP. CON ADDEBITO</span></label>
+                  <label class="checkbox-container cursor-pointer"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">IN CONTO ORDINE</span></label>
+                  <label class="checkbox-container cursor-pointer"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">RIP. SENZA ADDEBITO</span></label>
+                  <label class="checkbox-container cursor-pointer"><input type="checkbox"> <span class="pl-1" style="color: var(--text-primary);">RESO SENZA ADDEBITO</span></label>
               </div>
           </div>
         </div>
@@ -382,19 +382,19 @@
         <!-- Difetto Section -->
         <div class="grid grid-cols-2 gap-x-4 mt-2">
             <div class="section-box">
-                <label class="section-title">DIFETTO LAMENTATO</label>
-                <textarea rows="2" class="text-input w-full" placeholder="Problema segnalato dal cliente..."></textarea>
+                <label for="difetto-lamentato" class="section-title">DIFETTO LAMENTATO</label>
+                <textarea id="difetto-lamentato" rows="2" class="text-input w-full" placeholder="Problema segnalato dal cliente..."></textarea>
             </div>
             <div class="section-box">
-                <label class="section-title">DIFETTO RISCONTRATO</label>
-                <textarea rows="2" class="text-input w-full" placeholder="Problema effettivamente rilevato..."></textarea>
+                <label for="difetto-riscontrato" class="section-title">DIFETTO RISCONTRATO</label>
+                <textarea id="difetto-riscontrato" rows="2" class="text-input w-full" placeholder="Problema effettivamente rilevato..."></textarea>
             </div>
         </div>
 
         <!-- Descrizione Intervento Section -->
         <div class="section-box mt-2">
-            <label class="section-title">DESCRIZIONE INTERVENTO</label>
-            <textarea rows="3" class="text-input w-full" placeholder="Intervento eseguito, operazioni svolte e risultati..."></textarea>
+            <label for="descrizione-intervento" class="section-title">DESCRIZIONE INTERVENTO</label>
+            <textarea id="descrizione-intervento" rows="3" class="text-input w-full" placeholder="Intervento eseguito, operazioni svolte e risultati..."></textarea>
         </div>
 
         <div class="section-line"></div>
@@ -403,25 +403,25 @@
         <div class="grid grid-cols-2 gap-x-4 mt-2">
             <div class="section-box space-y-2">
                 <div class="grid grid-cols-[auto_1fr] gap-x-2 items-center">
-                    <label class="section-title text-xs whitespace-nowrap">ORE:</label>
-                    <select class="quantity-select-ore quantity-select-narrow">
+                    <label for="tempo-ore" class="section-title text-xs whitespace-nowrap">ORE:</label>
+                    <select id="tempo-ore" class="quantity-select-ore quantity-select-narrow">
                         <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
                         <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>
                     </select>
                 </div>
                 <div class="grid grid-cols-[auto_1fr] gap-x-2 items-center">
-                    <label class="section-title text-xs whitespace-nowrap">KM:</label>
-                    <input type="number" class="text-input km-percorsi w-16 text-right">
+                    <label for="km-percorsi" class="section-title text-xs whitespace-nowrap">KM:</label>
+                    <input id="km-percorsi" type="number" class="text-input km-percorsi w-16 text-right">
                 </div>
             </div>
             <div class="section-box space-y-2">
                 <div class="grid grid-cols-[auto_1fr] gap-x-2 items-center">
-                    <label class="section-title text-xs whitespace-nowrap">Costo/h (€):</label>
-                    <input type="number" step="0.01" min="0" class="text-input costo-orario w-16 text-right">
+                    <label for="costo-orario" class="section-title text-xs whitespace-nowrap">Costo/h (€):</label>
+                    <input id="costo-orario" type="number" step="0.01" min="0" class="text-input costo-orario w-16 text-right">
                 </div>
                 <div class="grid grid-cols-[auto_1fr] gap-x-2 items-center">
-                    <label class="section-title text-xs whitespace-nowrap">Costo/km (€):</label>
-                    <input type="number" step="0.01" min="0" class="text-input costo-km w-16 text-right">
+                    <label for="costo-km" class="section-title text-xs whitespace-nowrap">Costo/km (€):</label>
+                    <input id="costo-km" type="number" step="0.01" min="0" class="text-input costo-km w-16 text-right">
                 </div>
             </div>
         </div>
@@ -430,17 +430,17 @@
         
         <!-- Parti Sostituite Section -->
         <div class="section-box mt-2">
-            <label class="section-title">PARTI SOSTITUITE</label>
+            <span class="section-title">PARTI SOSTITUITE</span>
             <div class="grid grid-cols-[1fr_3rem_5rem] compact-parts gap-2">
                 <div class="font-semibold text-xs" style="color: var(--text-primary);">DESCRIZIONE</div>
                 <div class="text-center font-semibold text-xs" style="color: var(--text-primary);">Q.TÀ</div>
                 <div class="text-center font-semibold text-xs" style="color: var(--text-primary);">PREZZO (€)</div>
                 <!-- 5 righe compress -->
-                <input type="text" class="text-input part-description"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price">
-                <input type="text" class="text-input part-description"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price">
-                <input type="text" class="text-input part-description"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price">
-                <input type="text" class="text-input part-description"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price">
-                <input type="text" class="text-input part-description"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price">
+                <input type="text" class="text-input part-description" aria-label="Descrizione parte 1"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow" aria-label="Quantità parte 1"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price" aria-label="Prezzo unitario parte 1 (€)">
+                <input type="text" class="text-input part-description" aria-label="Descrizione parte 2"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow" aria-label="Quantità parte 2"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price" aria-label="Prezzo unitario parte 2 (€)">
+                <input type="text" class="text-input part-description" aria-label="Descrizione parte 3"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow" aria-label="Quantità parte 3"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price" aria-label="Prezzo unitario parte 3 (€)">
+                <input type="text" class="text-input part-description" aria-label="Descrizione parte 4"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow" aria-label="Quantità parte 4"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price" aria-label="Prezzo unitario parte 4 (€)">
+                <input type="text" class="text-input part-description" aria-label="Descrizione parte 5"><div class="flex justify-center"><select class="text-input quantity-select-parti quantity-select-narrow" aria-label="Quantità parte 5"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div><input type="text" class="text-input text-right unit-price" aria-label="Prezzo unitario parte 5 (€)">
             </div>
         </div>
 
@@ -475,15 +475,15 @@
 
         <div class="grid grid-cols-3 gap-x-4 mt-2 signature-section">
             <div class="section-box">
-                <label class="section-title">RESPONSABILE</label>
-                <input type="text" class="text-input w-full" placeholder="Nome">
+                <label for="responsabile" class="section-title">RESPONSABILE</label>
+                <input id="responsabile" type="text" class="text-input w-full" placeholder="Nome">
             </div>
             <div class="section-box">
-                <label class="section-title">DATA</label>
-                <input type="date" class="date-input-box w-full">
+                <label for="data-firma" class="section-title">DATA</label>
+                <input id="data-firma" type="date" class="date-input-box w-full">
             </div>
             <div class="section-box">
-                <label class="section-title">FIRMA CLIENTE</label>
+                <span class="section-title">FIRMA CLIENTE</span>
                 <div class="border-2 border-dashed rounded-lg h-10 flex items-center justify-center text-xs bg-white" style="border-color: var(--blue-border); color: var(--text-secondary);">
                     Firma
                 </div>
